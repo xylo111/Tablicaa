@@ -33,8 +33,8 @@ int suma=0;
             tab[i][j]=rand()%89+10;
             }
             cout<<tab[i][j]<<" | ";
-//znalezienie liczb nieparzystych, jesli chcesz parzyste zamiast 3 wstaw 2 w if ponizej
-            if ((tab[i][j]%3)==0)
+//znalezienie liczb nieparzystych, jesli chcesz parzyste zamiast %2!=0 wstaw %2==0 w if ponizej
+            if (tab[i][j]%2!=0)
             {
                 suma=suma+tab [i][j];
             }
