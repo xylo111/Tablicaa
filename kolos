@@ -1,0 +1,95 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+int main()
+{
+    
+//wypisanie tablicy o wymiarze podanym przez uzytkownika liczbami pseudolosowymi z zakresu od 10 do 99
+
+//te inty ponizej sluza do przypisania wartosci max i min do jakiegos inta, potrzebne przy zamianie
+int imin,jmin,imax,jmax,n;
+int suma=0;
+
+    cout<<"Podaj rozmiar tablicy: ";
+    cin>>n;
+    
+    int tab[n][n];
+    srand(time(NULL));
+    
+    for (int i=0;i<n;i++)
+    {
+        for (int j=0;j<n;j++)
+        {
+// wstawienie w pierwszym wierszu liczby 69, jesli chcesz w 2 wierszu daj if (i==1) a jezeli w kolumnie daj j zamiast i
+            if (i==0)
+            {
+                int op=69;
+                tab [i][j]=op;
+            }
+            else
+            {
+            tab[i][j]=rand()%89+10;
+            }
+            cout<<tab[i][j]<<" | ";
+//znalezienie liczb nieparzystych, jesli chcesz parzyste zamiast 3 wstaw 2 w if ponizej
+            if ((tab[i][j]%3)==0)
+            {
+                suma=suma+tab [i][j];
+            }
+        }
+        cout<<endl;
+    }
+    cout<<"Suma liczb nieparzystych: "<<suma;
+
+    
+//wypisanie liczby najmniejszej i najwiekszej z tablicy
+    
+//wypisanie liczby najwiekszej
+    int max=tab[0][0];
+    for (int i=0;i<n;i++)
+    for (int j=0;j<n;j++)
+    {
+        if (tab[i][j]>max)
+        {
+            max=tab[i][j];
+//przypisanie wartosci maksymalnej do jakiegos inta, potrzebne przy zamianie pozniej
+            imax=i;
+            jmax=j;
+        }
+    }
+    cout<<""<<endl;
+    cout<<"Wartosc maksymalna wynosi: "<<max<<endl;
+    
+//wypisanie liczby najmniejszej
+    int min=tab[0][0];
+    for (int i=0;i<n;i++)
+    for (int j=0;j<n;j++)
+    {
+        if (tab[i][j]<min)
+        {
+            min=tab[i][j];
+//przypisanie wartosci minimalnej do jakiegos inta, potrzebne przy zamianie pozniej
+            imin=i;
+            jmin=j;
+        }
+    }
+    cout<<"Wartosc minimalna wynosi: "<<min<<endl;
+    cout<<""<<endl;
+//zamiana wartosci maksymalnej z minimalna
+    cout<<"Tablica po zamianie wartosci minimalnej z maksymalna:"<<endl;
+    int temp=tab[imin][jmin];
+    tab[imin][jmin]=tab[imax][jmax];
+    tab[imax][jmax]=temp;
+
+    for (int i=0;i<n;i++)
+    {
+        for (int j=0;j<n;j++)
+        {
+            cout<<tab[i][j]<<" | ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
