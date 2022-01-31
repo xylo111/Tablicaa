@@ -18,7 +18,7 @@ int suma=0;
     {
         for (int j=0;j<n;j++)
         {
-            tab[i][j]=rand()%89+10;
+            tab[i][j]=rand()%35-10;
             cout<<tab[i][j]<<" | ";
         {
         if(i==j)
