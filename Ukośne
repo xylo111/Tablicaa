@@ -25,7 +25,7 @@ int suma=0;
         {
              sumal += tab[i][j];
         }
-        if((i+j) == n-1)
+        if((i+j) == (n-1))
         {
              sumap += tab[i][j];
         }
